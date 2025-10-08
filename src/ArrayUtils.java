@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 public class ArrayUtils {
@@ -8,10 +9,10 @@ public class ArrayUtils {
         }
         ArrayList<T> resultado = new ArrayList<>();
         for(T elemento :array){
-            if (predicate.test(elemento) == true) {
+            if (predicate.test(elemento)) {
                 resultado.add(elemento);
             }
         }
-        return resultado.toArray((T[]) new Object[resultado.size()]);
+        return resultado.toArray(Arrays.copyOf(array, 0));
     }
 }
