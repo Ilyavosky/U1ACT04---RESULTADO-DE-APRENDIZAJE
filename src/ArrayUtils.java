@@ -28,5 +28,11 @@ public class ArrayUtils {
         return null;
     }
 
+    public static <T extends Comparable<T>> void sort(T[] array){
+        if (array == null || array.length < 2){
+            return ;
+        }
+        Arrays.sort(array);
+    }
 
 }
