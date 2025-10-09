@@ -1,4 +1,4 @@
-public class Leccion {
+    public class Leccion implements Comparable<Leccion> {
     private String titulo;
     private String tema;
     private String nivel;
@@ -34,5 +34,16 @@ public class Leccion {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    @Override
+    public String toString() {
+        return this.titulo + " - " + this.tema + " - " + this.nivel;
+    }
+
+    @Override
+    public int compareTo(Leccion otraLeccion) {
+        return this.titulo.compareTo(otraLeccion.titulo);
+    }
+
 
 }
