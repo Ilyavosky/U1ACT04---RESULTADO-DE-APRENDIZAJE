@@ -1,3 +1,5 @@
+package utils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Predicate;
@@ -34,5 +36,4 @@ public class ArrayUtils {
         }
         Arrays.sort(array);
     }
-
 }
