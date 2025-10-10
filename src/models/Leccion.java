@@ -1,6 +1,8 @@
 package models;
 
-public class Leccion implements Comparable<Leccion> {
+import utils.Filtrable;
+
+public class Leccion implements Comparable<Leccion>, Filtrable {
     private String titulo;
     private String tema;
     private String nivel;
@@ -55,6 +57,17 @@ public class Leccion implements Comparable<Leccion> {
 
     public void setClasificacion(Character clasificacion) {
         this.clasificacion = clasificacion;
+    }
+
+    @Override
+    public boolean cumpleFiltro(String criterio) {
+        if (criterio == null || criterio.trim().isEmpty()) {
+            return true;
+        }
+        String criterioBusqueda = criterio.toLowerCase();
+        return (titulo != null && titulo.toLowerCase().contains(criterioBusqueda)) ||
+                (tema != null && tema.toLowerCase().contains(criterioBusqueda)) ||
+                (nivel != null && nivel.toLowerCase().contains(criterioBusqueda));
     }
 
     @Override
