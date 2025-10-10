@@ -32,7 +32,7 @@ public class Aplications {
             mostrarMenu();
             System.out.print("Elige una opción: ");
             eleccion = sc.nextInt();
-            sc.nextLine(); // Limpiar el buffer del scanner
+            sc.nextLine();
 
             switch (eleccion) {
                 case 1:
@@ -48,10 +48,10 @@ public class Aplications {
                     System.out.println(Arrays.toString(catalogo));
                     break;
                 case 4:
-                    buscarLeccionPorId(); // Nueva opción
+                    buscarLeccionPorId();
                     break;
                 case 5:
-                    buscarLeccionPorClasificacion(); // Nueva opción
+                    buscarLeccionPorClasificacion();
                     break;
                 case 0:
                     System.out.println("\n!Esperamos que regreses a aprender pronto¡");
@@ -89,13 +89,11 @@ public class Aplications {
         }
     }
 
-    // --- NUEVO MÉTODO PARA BUSCAR POR ID ---
     private void buscarLeccionPorId() {
         System.out.print("Escribe el ID de la lección a buscar: ");
         Integer idBuscado = sc.nextInt();
-        sc.nextLine(); // Limpiar buffer
+        sc.nextLine();
 
-        // Reutilizamos findFirst con una nueva condición (lambda)
         Leccion leccionEncontrada = ArrayUtils.findFirst(catalogo, leccion -> leccion.getId().equals(idBuscado));
 
         System.out.println("\nResultado de la Búsqueda por ID");
@@ -106,12 +104,10 @@ public class Aplications {
         }
     }
 
-    // --- NUEVO MÉTODO PARA BUSCAR POR CLASIFICACIÓN ---
     private void buscarLeccionPorClasificacion() {
         System.out.print("Escribe la clasificación a buscar (P, I, A): ");
         char clasificacionBuscada = sc.nextLine().toUpperCase().charAt(0);
 
-        // Reutilizamos findFirst de nuevo, ahora para buscar por Character
         Leccion leccionEncontrada = ArrayUtils.findFirst(catalogo, leccion -> leccion.getClasificacion().equals(clasificacionBuscada));
 
         System.out.println("\nResultado de la Búsqueda por Clasificación");
